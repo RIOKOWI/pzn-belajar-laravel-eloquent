@@ -94,3 +94,11 @@ Category.php
 CategorySeeder.php
 
 LINE -
+
+## INSERT
+
+contoh di file :
+CategoryTest.php
+TestCase.php
+
+LINE -
