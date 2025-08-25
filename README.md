@@ -80,9 +80,17 @@ database.sql
 
 LINE -
 
-## MEMBUAT DATABASE
+## MODEL
+
+perintah buat model :
+php artisan make:model NamaModel
+
+perintah buat model,migration,seeding :
+php artisan make:model NamaModel --migration --seed
 
 contoh di file :
-database.sql
+Category.php
+2025_08_25_130808_create_categories_table.php
+CategorySeeder.php
 
 LINE -
