@@ -24,4 +24,15 @@ class VoucherTest extends TestCase
         assertNotNull($voucher->id);
     }
 
+    public function testCreateVoucherCodeUuid(): void
+    {
+        $voucher = new Voucher()    ;
+        $voucher->name = 'embut';
+        $result = $voucher->save();
+
+        assertTrue($result);
+        assertNotNull($voucher->id);
+        assertNotNull($voucher->voucher_code);
+    }
+
 }
