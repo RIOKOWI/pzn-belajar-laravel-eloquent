@@ -176,4 +176,12 @@ CommentTest.php
 
 LINE 12-22
 
+## DEFAULT ATTRIBUTE VALUES
+
+contoh di file :
+Comment.php
+CommentTest.php
+
+LINE 24-32
+
 
