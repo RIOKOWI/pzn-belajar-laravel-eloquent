@@ -115,7 +115,7 @@ class CategoryTest extends TestCase
         
         $result = Category::insert($categories);
         assertEquals(10, $result);
-
+        
         Category::whereNull('description')->update([
             'description' => 'update many'
         ]);
@@ -131,10 +131,31 @@ class CategoryTest extends TestCase
         $category = Category::find('FOOD');
         $result = $category->delete();
         assertTrue($result);
-
+        
         $total = Category::count();
         assertEquals(0, $total);
     }
+    
+    // DELETE MANY
+    public function testDeleteMany()
+    {
+        $categories = [];
+        for($i = 0; $i < 10; $i++){
+            $categories [] = [
+                'id' => "ID $i",
+                'name' => "NAME $i"
+            ];
+        }
 
+        $result = Category::insert($categories);
+        assertTrue($result);
 
+        $total = Category::count();
+        assertEquals(10, $total);
+
+        Category::whereNull('description')->delete();
+        $end = Category::count();
+        assertEquals(0, $end);
+    }
+    
 }

@@ -146,3 +146,10 @@ contoh di file :
 CategoryTest.php
 
 LINE 126-137
+
+## DELETE MANY
+
+contoh di file :
+CategoryTest.php
+
+LINE 139-160
