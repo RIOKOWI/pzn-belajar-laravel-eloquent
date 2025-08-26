@@ -74,8 +74,31 @@ class CategoryTest extends TestCase
         $category = Category::find('FOOD');
         $category->name = 'food update';
         $result = $category->update();
-
+        
         assertTrue($result);
     }
+    
+    // SELECT
+    public function testSelect()
+    {
+        for($i = 0; $i < 5; $i++){
+            $category = new Category();
+            $category->id = "ID $i";
+            $category->name = "NAME $i";
+            $category->save();
+        }
 
+        $categories = Category::whereNull('description')->get();
+        assertEquals(5, $categories->count());
+        $categories->each(function ($category){
+            self::assertNull($category->description);
+        });
+        
+        // bisa di update
+        $categories->each(function ($category){
+            $category->description = 'updated';
+            $category->update();
+        });
+        
+    }
 }

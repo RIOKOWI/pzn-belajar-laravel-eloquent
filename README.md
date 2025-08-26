@@ -124,11 +124,11 @@ LINE 56-68
 contoh di file :
 CategoryTest.php
 
-LINE 69-81
+LINE 69-79
 
 ## SELECT
 
 contoh di file :
 CategoryTest.php
 
-LINE 69-81
+LINE 81-103
