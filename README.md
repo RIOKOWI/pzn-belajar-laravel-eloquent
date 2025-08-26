@@ -153,3 +153,16 @@ contoh di file :
 CategoryTest.php
 
 LINE 139-160
+
+## UUID
+
+contoh di file :
+Voucher.php
+2025_08_26_122450_create_vouchers_table.php
+VoucherSeeder.php
+TestCase.php
+VoucherTest.php
+
+LINE 139-160
+
+

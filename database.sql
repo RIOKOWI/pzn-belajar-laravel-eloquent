@@ -4,4 +4,4 @@ use belajar_laravel_eloquent;
 SHOW TABLES;
 
 DESC categories;
-SELECT * FROM categories;
+SELECT * FROM vouchers;
