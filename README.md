@@ -98,15 +98,23 @@ LINE -
 ## INSERT
 
 contoh di file :
-CategoryTest.php
 TestCase.php
+CategoryTest.php
 
 LINE 19-31
 
 ## INSERT MANY
 
 contoh di file :
-CategoryTest.php
 AppServiceProvider.php
+CategoryTest.php
 
 LINE 33-53
+
+## FIND
+
+contoh di file :
+CategorySeeder.php
+CategoryTest.php
+
+LINE 56-68
