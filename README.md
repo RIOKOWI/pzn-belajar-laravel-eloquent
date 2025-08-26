@@ -118,3 +118,17 @@ CategorySeeder.php
 CategoryTest.php
 
 LINE 56-68
+
+## UPDATE
+
+contoh di file :
+CategoryTest.php
+
+LINE 69-81
+
+## SELECT
+
+contoh di file :
+CategoryTest.php
+
+LINE 69-81

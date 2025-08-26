@@ -57,7 +57,7 @@ class CategoryTest extends TestCase
     public function testFind()
     {
         $this->seed(CategorySeeder::class);
-
+        
         // $category = Category::query()->find();
         $category = Category::find('FOOD');
         assertNotNull($category);
@@ -65,4 +65,17 @@ class CategoryTest extends TestCase
         assertEquals('food', $category->name);
         assertEquals('food category', $category->description);
     }
+    
+    // UPDATE
+    public function testUpdate()
+    {
+        $this->seed(CategorySeeder::class);
+
+        $category = Category::find('FOOD');
+        $category->name = 'food update';
+        $result = $category->update();
+
+        assertTrue($result);
+    }
+
 }
