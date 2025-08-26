@@ -132,3 +132,10 @@ contoh di file :
 CategoryTest.php
 
 LINE 81-103
+
+## UPDATE MANY
+
+contoh di file :
+CategoryTest.php
+
+LINE 105-124

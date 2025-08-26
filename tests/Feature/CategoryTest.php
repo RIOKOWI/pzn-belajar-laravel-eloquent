@@ -87,7 +87,7 @@ class CategoryTest extends TestCase
             $category->name = "NAME $i";
             $category->save();
         }
-
+        
         $categories = Category::whereNull('description')->get();
         assertEquals(5, $categories->count());
         $categories->each(function ($category){
@@ -101,4 +101,26 @@ class CategoryTest extends TestCase
         });
         
     }
+    
+    // UPDATE MANY
+    public function testUpdateMany()
+    {
+        $categories = [];
+        for($i = 0; $i < 10; $i++){
+            $categories [] = [
+                'id' => "ID $i",
+                'name' => "NAME $i"
+            ];
+        }
+
+        $result = Category::insert($categories);
+        assertEquals(10, $result);
+
+        Category::whereNull('description')->update([
+            'description' => 'update many'
+        ]);
+        $total = Category::where('description', '=', 'update many')->get();
+        self::assertEquals(10, $total->count());
+    }
+
 }
