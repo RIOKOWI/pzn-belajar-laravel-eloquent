@@ -101,4 +101,12 @@ contoh di file :
 CategoryTest.php
 TestCase.php
 
-LINE -
+LINE 19-31
+
+## INSERT MANY
+
+contoh di file :
+CategoryTest.php
+AppServiceProvider.php
+
+LINE 33-53
