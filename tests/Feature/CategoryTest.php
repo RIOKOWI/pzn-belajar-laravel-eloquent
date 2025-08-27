@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Category;
+use App\Models\Scopes\IsActiveScope;
 use Database\Seeders\CategorySeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -10,6 +11,7 @@ use Tests\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotNull;
+use function PHPUnit\Framework\assertNull;
 use function PHPUnit\Framework\assertTrue;
 
 class CategoryTest extends TestCase
@@ -44,11 +46,13 @@ class CategoryTest extends TestCase
         }
 
         // $result = Category::query()->insert($categories);
-        $result = Category::insert($categories);
+        // $result = Category::insert($categories);
+        $result = Category::withoutGlobalScopes([IsActiveScope::class])->insert($categories);
         assertTrue($result);
 
         // $total = Category::query()->count();
-        $total = Category::count();
+        // $total = Category::count();
+        $total = Category::withoutGlobalScopes([IsActiveScope::class])->count();
         assertEquals(10, $total);
 
     }
@@ -59,7 +63,8 @@ class CategoryTest extends TestCase
         $this->seed(CategorySeeder::class);
         
         // $category = Category::query()->find();
-        $category = Category::find('FOOD');
+        // $category = Category::find('FOOD');
+        $category = Category::withoutGlobalScopes([IsActiveScope::class])->find('FOOD');
         assertNotNull($category);
         assertEquals('FOOD', $category->id);
         assertEquals('food', $category->name);
@@ -71,7 +76,8 @@ class CategoryTest extends TestCase
     {
         $this->seed(CategorySeeder::class);
 
-        $category = Category::find('FOOD');
+        // $category = Category::find('FOOD');
+        $category = Category::withoutGlobalScopes([IsActiveScope::class])->find('FOOD');
         $category->name = 'food update';
         $result = $category->update();
         
@@ -88,8 +94,11 @@ class CategoryTest extends TestCase
             $category->save();
         }
         
-        $categories = Category::whereNull('description')->get();
+        // $categories = Category::whereNull('description')->get();
+        $categories = Category::withoutGlobalScopes([IsActiveScope::class])->whereNull('description')->get();
+
         assertEquals(5, $categories->count());
+
         $categories->each(function ($category){
             self::assertNull($category->description);
         });
@@ -113,13 +122,19 @@ class CategoryTest extends TestCase
             ];
         }
         
-        $result = Category::insert($categories);
+        // $result = Category::insert($categories);
+        $result = Category::withoutGlobalScopes([IsActiveScope::class])->insert($categories);
         assertEquals(10, $result);
         
-        Category::whereNull('description')->update([
+        // Category::whereNull('description')->update([
+        //     'description' => 'update many'
+        // ]);
+        Category::withoutGlobalScopes([IsActiveScope::class])->whereNull('description')->update([
             'description' => 'update many'
         ]);
-        $total = Category::where('description', '=', 'update many')->get();
+
+        // $total = Category::where('description', '=', 'update many')->get();
+        $total = Category::withoutGlobalScopes([IsActiveScope::class])->where('description', '=', 'update many')->get();
         self::assertEquals(10, $total->count());
     }
 
@@ -128,11 +143,13 @@ class CategoryTest extends TestCase
     {
         $this->seed(CategorySeeder::class);
 
-        $category = Category::find('FOOD');
+        // $category = Category::find('FOOD');
+        $category = Category::withoutGlobalScopes([IsActiveScope::class])->find('FOOD');
         $result = $category->delete();
         assertTrue($result);
         
-        $total = Category::count();
+        // $total = Category::count();
+        $total = Category::withoutGlobalScopes([IsActiveScope::class])->count();
         assertEquals(0, $total);
     }
     
@@ -147,13 +164,16 @@ class CategoryTest extends TestCase
             ];
         }
 
-        $result = Category::insert($categories);
+        // $result = Category::insert($categories);
+        $result = Category::withoutGlobalScopes([IsActiveScope::class])->insert($categories);
         assertTrue($result);
 
-        $total = Category::count();
+        // $total = Category::count();
+        $total = Category::withoutGlobalScopes([IsActiveScope::class])->count();
         assertEquals(10, $total);
 
-        Category::whereNull('description')->delete();
+        // Category::whereNull('description')->delete();
+        Category::withoutGlobalScopes([IsActiveScope::class])->whereNull('description')->delete();
         $end = Category::count();
         assertEquals(0, $end);
     }
@@ -196,11 +216,29 @@ class CategoryTest extends TestCase
             'description' => 'mbut dscription'
         ];
 
-        $categories = Category::find('FOOD');
+        // $categories = Category::find('FOOD');
+        $categories = Category::withoutGlobalScopes([IsActiveScope::class])->find('FOOD');
         $categories->fill($request);
         $categories->save();
 
         assertNotNull($categories->id);
+    }
+
+    // global scope
+    public function testRemoveGlobalScope()
+    {
+        $category = new Category();
+        $category->id = 'FOOD';
+        $category->name = 'food';
+        $category->description = 'sample desc';
+        $category->is_active = false;
+        $category->save();
+
+        $category = Category::find('FOOD');
+        self::assertNull($category);
+
+        $category = Category::withoutGlobalScopes([IsActiveScope::class])->find('FOOD');
+        self::assertNotNull($category);
     }
 
 }

@@ -210,4 +210,20 @@ LINE 39-53
 Global Scope
 Local Scope
 
+## QUERY GLOBAL SCOPE
+
+perintah add column :
+php artisan make:migration 2025_08_27_025209_add_column_id_active_to_categories
+
+perintah buat scope :
+php artisan make:scope IsActiveScope
+
+contoh di file :
+2025_08_27_025209_add_column_id_active_to_categories.php
+IsActiveScope.php
+Category.php
+CategoryTest.php
+
+LINE 227-242
+
 
