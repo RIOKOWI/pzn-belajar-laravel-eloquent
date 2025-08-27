@@ -244,4 +244,17 @@ ONE TO ONE
 ONE TO MANY
 MANY TO MANY
 
+## ONE TO ONE
+
+contoh di file :
+2025_08_27_121012_create_wallets_table.php
+2025_08_27_120834_create_customers_table.php
+Customer.php
+Wallet.php
+CustomerSeeder.php
+WalletSeeder.php
+TestCase.php
+CustomerTest.php
+
+LINE -
 
