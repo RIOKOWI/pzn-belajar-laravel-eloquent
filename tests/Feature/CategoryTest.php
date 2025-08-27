@@ -158,4 +158,20 @@ class CategoryTest extends TestCase
         assertEquals(0, $end);
     }
     
+
+    // fillable attribue values
+    public function testCreateCategory()
+    {
+        $request = [
+            'id' => 'FOOD',
+            'name' => 'food category' ,
+            'description' => 'sample dscription'
+        ];
+
+        $categories = new Category($request);
+        $categories->save();
+
+        assertNotNull($categories->id);
+    }
+
 }

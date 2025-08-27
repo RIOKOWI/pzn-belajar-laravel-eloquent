@@ -184,4 +184,12 @@ CommentTest.php
 
 LINE 24-32
 
+## FILLABLE ATTRIBUTE VALUES
+
+contoh di file :
+Category.php
+CategoryTestTest.php
+
+LINE 162-32
+
 
