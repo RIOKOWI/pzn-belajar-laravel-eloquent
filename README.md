@@ -188,8 +188,21 @@ LINE 24-32
 
 contoh di file :
 Category.php
-CategoryTestTest.php
+CategoryTest.php
 
-LINE 162-32
+LINE 162-204
+
+## SOFT DELETE
+
+perintah add column :
+php artisan make:migration add_deleted_at_column_to_vouchers
+
+contoh di file :
+2025_08_27_022548_add_deleted_at_column_to_vouchers.php
+Voucher.php
+VoucherSeeder.php
+VoucherTest.php
+
+LINE 39-204
 
 

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Voucher;
+use Database\Seeders\VoucherSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -33,6 +34,22 @@ class VoucherTest extends TestCase
         assertTrue($result);
         assertNotNull($voucher->id);
         assertNotNull($voucher->voucher_code);
+    }
+
+    // soft delete
+    public function testSoftDelete(): void
+    {
+        $this->seed(VoucherSeeder::class);
+
+        $voucher = Voucher::where('name', '=', 'sample voucher')->first();
+        $voucher->delete();
+
+        $voucher = Voucher::where('name', '=', 'sample voucher')->first();
+        self::assertNull($voucher);
+
+        // ambil data softdelete
+        $voucher = Voucher::withTrashed()->where('name', '=', 'sample voucher')->first();
+        self::assertNotNull($voucher);
     }
 
 }
