@@ -258,3 +258,18 @@ CustomerTest.php
 
 LINE -
 
+## ONE TO MANY
+
+contoh di file :
+
+2025_08_27_130841_create_products_table.php
+Category.php
+Product.php
+CategorySeeder.php
+ProductSeeder.php
+TestCase.php
+ProductTest.php
+CategoryTest.php
+
+LINE 246-257
+
