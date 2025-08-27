@@ -187,4 +187,20 @@ class CategoryTest extends TestCase
         assertNotNull($categories->id);
     }
 
+    public function testUpdateMethod()
+    {
+        $this->seed(CategorySeeder::class);
+
+        $request = [
+            'name' => 'food category' ,
+            'description' => 'mbut dscription'
+        ];
+
+        $categories = Category::find('FOOD');
+        $categories->fill($request);
+        $categories->save();
+
+        assertNotNull($categories->id);
+    }
+
 }
