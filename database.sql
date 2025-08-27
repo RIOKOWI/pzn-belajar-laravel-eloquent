@@ -6,4 +6,4 @@ SHOW TABLES;
 
 DESC comments;
 
-SELECT * FROM categories;
+SELECT * FROM vouchers;

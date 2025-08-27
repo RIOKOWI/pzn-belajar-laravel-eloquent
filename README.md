@@ -213,9 +213,9 @@ Local Scope
 ## QUERY GLOBAL SCOPE
 
 perintah add column :
-php artisan make:migration 2025_08_27_025209_add_column_id_active_to_categories
+php artisan make:migration add_column_id_active_to_categories
 
-perintah buat scope :
+perintah buat global scope :
 php artisan make:scope IsActiveScope
 
 contoh di file :
@@ -225,5 +225,17 @@ Category.php
 CategoryTest.php
 
 LINE 227-242
+
+## QUERY LOCAL SCOPE
+
+perintah add column :
+php artisan make:migration add_is_active_to_vouchers
+
+contoh di file :
+2025_08_27_115200_add_is_active_to_vouchers.php
+Voucher.php
+VoucherTest.php
+
+LINE 56-70
 
 

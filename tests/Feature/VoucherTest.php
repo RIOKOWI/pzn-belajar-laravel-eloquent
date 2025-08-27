@@ -8,6 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotNull;
 use function PHPUnit\Framework\assertTrue;
 
@@ -50,6 +51,22 @@ class VoucherTest extends TestCase
         // ambil data softdelete
         $voucher = Voucher::withTrashed()->where('name', '=', 'sample voucher')->first();
         self::assertNotNull($voucher);
+    }
+
+    // query local scope
+    public function testLocalScope()
+    {
+        $voucher = new Voucher();
+        $voucher->name = 'sample voucher';
+        $voucher->is_active = true;
+        $voucher->save();
+
+        $total = Voucher::active()->count();
+        assertEquals(1, $total);
+
+        $total = Voucher::nonActive()->count();
+        assertEquals(0, $total);
+
     }
 
 }
