@@ -174,4 +174,17 @@ class CategoryTest extends TestCase
         assertNotNull($categories->id);
     }
 
+    public function testCreateMethod()
+    {
+        $request = [
+            'id' => 'FOOD',
+            'name' => 'food category' ,
+            'description' => 'sample dscription'
+        ];
+
+        $categories = Category::query()->create($request);
+
+        assertNotNull($categories->id);
+    }
+
 }

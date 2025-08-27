@@ -4,4 +4,5 @@ use belajar_laravel_eloquent;
 SHOW TABLES;
 
 DESC comments;
-SELECT * FROM comments;
+
+SELECT * FROM categories;
