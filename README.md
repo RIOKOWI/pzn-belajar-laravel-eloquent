@@ -203,6 +203,11 @@ Voucher.php
 VoucherSeeder.php
 VoucherTest.php
 
-LINE 39-204
+LINE 39-53
+
+## QUERY SCOPE
+
+Global Scope
+Local Scope
 
 
