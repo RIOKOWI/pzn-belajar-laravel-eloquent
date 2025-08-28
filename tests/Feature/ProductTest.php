@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use App\Models\Product;
 use Tests\TestCase;
 use Database\Seeders\ProductSeeder;
@@ -31,5 +32,21 @@ class ProductTest extends TestCase
         assertEquals('FOOD' ,$category->id);
         assertEquals(1 ,$category->count());
 
+    }
+
+    //has one of many
+    public function testSearchProduct()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+        $category = Category::find('FOOD');
+
+        $murah = $category->cheapestProduct;
+        assertNotNull($murah);
+        assertEquals('2', $murah->id);
+
+        $mahal = $category->expensiveProduct;
+        assertNotNull($mahal);
+        assertEquals('1', $mahal->id);
     }
 }

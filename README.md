@@ -287,11 +287,10 @@ LINE 261-292
 
 contoh di file :
 
+ProductSeeder.php
 Category.php
-CustomerTest.php
-CategoryTest.php
+ProductTest.php
 
 LINE 36-44
-LINE 35-49
-LINE 261-292
+LINE 37-51
 

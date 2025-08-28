@@ -33,7 +33,7 @@ class Category extends Model
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
-    // has of many
+    // has one of many
     public function cheapestProduct(): HasOne
     {
         return $this->hasOne(Product::class, 'category_id', 'id')->oldest('price');
