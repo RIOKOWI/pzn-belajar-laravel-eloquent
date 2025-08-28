@@ -283,3 +283,15 @@ CategoryTest.php
 LINE 35-49
 LINE 261-292
 
+## HAS ONE OF MANY
+
+contoh di file :
+
+Category.php
+CustomerTest.php
+CategoryTest.php
+
+LINE 36-44
+LINE 35-49
+LINE 261-292
+
