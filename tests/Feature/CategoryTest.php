@@ -6,7 +6,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Scopes\IsActiveScope;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\CustomerSeeder;
 use Database\Seeders\ProductSeeder;
+use Database\Seeders\ReviewSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -254,7 +256,7 @@ class CategoryTest extends TestCase
 
         $products = $category->products;
         assertNotNull($products);
-        assertEquals(1, $products->count());
+        assertEquals(2, $products->count());
     }
 
 
@@ -285,10 +287,23 @@ class CategoryTest extends TestCase
 
         $category = Category::find('FOOD');
         $products = $category->products;
-        assertCount(1, $products);
+        assertCount(2, $products);
 
         $stokHabis = $category->products()->where('stock', '<=', 0)->get();
         assertCount(0, $stokHabis);
+    }
+
+    // has many through
+    public function testHasManyThrough()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, CustomerSeeder::class, ReviewSeeder::class]);
+
+        $category = Category::find('FOOD');
+        assertNotNull($category);
+
+        $review = $category->review;
+        assertNotNull($review);
+        assertCount(2, $review);
     }
     
 }

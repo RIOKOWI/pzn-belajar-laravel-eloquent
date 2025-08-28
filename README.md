@@ -310,4 +310,22 @@ LINE 24-31
 LINE 23-27
 LINE 53-66
 
+## HAS MANY THROUGH
+
+contoh di file :
+
+2025_08_28_123501_create_reviews_table.php
+Review.php
+ReviewSeeder.php
+TestCase.php
+
+Customer.php
+Product.php
+Category.php
+CategoryTest.php
+LINE 35-39
+LINE 23-27
+LINE 47-56
+LINE 296-307
+
 
