@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class VirtualAccount extends Model
 {
+
+    // has one through
     protected $table = 'virtual_accounts';
     protected $primaryKey = 'id';
     protected $keyType = 'int';

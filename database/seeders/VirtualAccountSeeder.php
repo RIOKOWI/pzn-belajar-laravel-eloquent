@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\VirtualAccount;
+use App\Models\Wallet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,13 @@ class VirtualAccountSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $wallet = Wallet::where('customer_id', 'RIO')->firstOrFail();
+
+        $va = new VirtualAccount();
+        $va->bank = 'BCA';
+        $va->va_number = '001';
+        $va->wallet_id = $wallet->id;
+        $va->save();
+
     }
 }
