@@ -294,3 +294,15 @@ ProductTest.php
 LINE 36-44
 LINE 37-51
 
+## HAS ONE THROUGH
+
+contoh di file :
+
+ProductSeeder.php
+Category.php
+ProductTest.php
+
+LINE 36-44
+LINE 37-51
+
+
