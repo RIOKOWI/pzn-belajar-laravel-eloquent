@@ -11,6 +11,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertCount;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotNull;
 use function PHPUnit\Framework\assertNull;
@@ -254,6 +255,40 @@ class CategoryTest extends TestCase
         $products = $category->products;
         assertNotNull($products);
         assertEquals(1, $products->count());
+    }
+
+
+    //query builder realtionship
+    public function testOtmQbr()
+    {
+        $category = new Category();
+        $category->id = 'SOTO';
+        $category->name = 'soto';
+        $category->description = 'kuah';
+        $category->is_active = true;
+        $category->save();
+
+        $product = new Product();
+        $product->id = '1';
+        $product->name = 'soto ayam';
+        $product->description = 'wuenak';
+        $product->price = 15000;
+        $product->stock = 100;
+        $category->products()->save($product);
+
+        assertNotNull($product->category_id);
+    }
+
+    public function testSearchProduct()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+        $category = Category::find('FOOD');
+        $products = $category->products;
+        assertCount(1, $products);
+
+        $stokHabis = $category->products()->where('stock', '<=', 0)->get();
+        assertCount(0, $stokHabis);
     }
     
 }

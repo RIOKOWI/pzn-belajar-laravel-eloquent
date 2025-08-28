@@ -273,3 +273,13 @@ CategoryTest.php
 
 LINE 246-257
 
+## QUERY BUILDER RELATIONSHIP
+
+contoh di file :
+
+CustomerTest.php
+CategoryTest.php
+
+LINE 35-49
+LINE 261-292
+
