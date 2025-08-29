@@ -328,4 +328,22 @@ LINE 23-27
 LINE 47-56
 LINE 296-307
 
+## MANY TO MANY
+
+contoh di file :
+
+2025_08_29_124926_create_table_customers_likes_products.php
+Review.php
+ReviewSeeder.php
+TestCase.php
+
+Customer.php
+Product.php
+Category.php
+CategoryTest.php
+LINE 35-39
+LINE 23-27
+LINE 47-56
+LINE 296-307
+
 
