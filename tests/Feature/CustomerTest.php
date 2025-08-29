@@ -96,4 +96,23 @@ class CustomerTest extends TestCase
         assertNotNull($products);
         assertCount(0, $products);
     }
+
+    // intermediate table
+    public function testPivot()
+    {
+        $this->testLike();
+
+        $customer = Customer::find('RIO');
+        $products = $customer->likesProducts;
+
+        foreach($products as $product)
+        {
+            $pivot = $product->pivot;
+            assertNotNull($pivot->customer_id);
+            assertNotNull($pivot->product_id);
+            assertNotNull($pivot->created_at);
+        };
+    }
+
+    
 }
