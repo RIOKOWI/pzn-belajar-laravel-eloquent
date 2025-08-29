@@ -84,4 +84,16 @@ class CustomerTest extends TestCase
         
         assertEquals('1', $products[0]->id);
     }
+
+    public function testDislike()
+    {
+        $this->testLike();
+
+        $customer = Customer::find('RIO');
+        $customer->likesProducts()->detach('1');
+        
+        $products = $customer->likesProducts;
+        assertNotNull($products);
+        assertCount(0, $products);
+    }
 }
