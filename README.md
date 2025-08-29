@@ -342,4 +342,18 @@ LINE 42-46
 LINE 30-34
 LINE 72-98
 
+## INTERMEDIATE TABLE
+
+contoh di file :
+
+2025_08_29_132310_add_created_at_in_customers_likes_products.php
+TestCase.php
+
+Customer.php
+Product.php
+CategoryTest.php
+LINE 42-46
+LINE 30-34
+LINE 72-98
+
 
