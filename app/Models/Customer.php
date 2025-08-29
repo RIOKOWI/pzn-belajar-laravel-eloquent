@@ -39,9 +39,9 @@ class Customer extends Model
         return $this->hasMany(Review::class, 'customer_id', 'id');
     }
 
-    //many to many
+    //many to many & intermediate table
     public function likesProducts(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id')->withPivot('created_at');
     }
 }
