@@ -454,3 +454,10 @@ Customer.php
 CustomerTest.php
 LINE 20
 LINE 182-189
+
+## QUERYING RELATIONS
+
+contoh di file :
+
+CategoryTest.php
+LINE 311-320

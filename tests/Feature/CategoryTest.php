@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Scopes\IsActiveScope;
 use Database\Seeders\CategorySeeder;
@@ -306,4 +307,15 @@ class CategoryTest extends TestCase
         assertCount(2, $review);
     }
     
+
+    //querying relations
+    public function testQueryingRelations()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+        $category = Category::find('FOOD');
+        $product = $category->products()->where('price', '=', 20000)->get();
+        assertCount(1, $product);
+        assertEquals('1', $product[0]->id);
+    }
 }
