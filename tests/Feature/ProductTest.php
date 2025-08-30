@@ -4,12 +4,16 @@ namespace Tests\Feature;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Voucher;
 use Tests\TestCase;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\CommentSeeder;
+use Database\Seeders\VoucherSeeder;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use function PHPUnit\Framework\assertCount;
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertNotNull;
 
@@ -48,5 +52,20 @@ class ProductTest extends TestCase
         $mahal = $category->expensiveProduct;
         assertNotNull($mahal);
         assertEquals('1', $mahal->id);
+    }
+
+    // one to meny polymorphic
+    public function testOneToManyPolymorphic()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, VoucherSeeder::class, CommentSeeder::class]);
+
+        $product = Product::first();
+        $comments = $product->comments;
+        assertCount(1, $comments);
+        foreach ($comments as $comment){
+            assertNotNull($comment);
+            assertEquals($product->id, $comment->commentable_id);
+            assertEquals(Product::class, $comment->commentable_type);
+        }
     }
 }

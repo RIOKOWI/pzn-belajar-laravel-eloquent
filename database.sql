@@ -6,4 +6,4 @@ SHOW TABLES;
 
 DESC comments;
 
-SELECT * FROM customers_likes_products;
+SELECT * FROM vouchers;
