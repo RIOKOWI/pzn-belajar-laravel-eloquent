@@ -379,4 +379,5 @@ Many to Many Polymorphic
 ## ONE TO ONE POLYMORPHIC
 
 contoh di file :
+
 2025_08_30_035520_create_images_table.php
