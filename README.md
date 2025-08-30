@@ -338,7 +338,7 @@ TestCase.php
 Customer.php
 Product.php
 CategoryTest.php
-LINE 42-46
+LINE 43-46
 LINE 30-34
 LINE 72-98
 
@@ -347,13 +347,25 @@ LINE 72-98
 contoh di file :
 
 2025_08_29_132310_add_created_at_in_customers_likes_products.php
-TestCase.php
 
 Customer.php
 Product.php
 CategoryTest.php
-LINE 42-46
+LINE 43-54
 LINE 30-34
-LINE 72-98
+LINE 100-131
+
+## PIVOT MODEL
+
+contoh di file :
+
+2025_08_29_132310_add_created_at_in_customers_likes_products.php
+
+Customer.php
+Product.php
+CategoryTest.php
+LINE 43-54
+LINE 30-34
+LINE 100-131
 
 
