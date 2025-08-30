@@ -369,11 +369,14 @@ LINE 30-36
 LINE 133-152
 
 ## POLYMORPHIC RELATIONSHIPS
-1 FK bisa lebih dari 1 tabel
+1 FK bisa lebih dari 1 tabel/model
 
 One to One Polymorphic
 One to Many Polymorphic
 One of Many Polymorphic
 Many to Many Polymorphic
 
+## ONE TO ONE POLYMORPHIC
 
+contoh di file :
+2025_08_30_035520_create_images_table.php
