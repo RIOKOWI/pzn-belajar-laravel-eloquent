@@ -4,10 +4,12 @@ namespace Tests\Feature;
 
 use App\Models\Category;
 use App\Models\Customer;
+use App\Models\Product;
 use App\Models\VirtualAccount;
 use App\Models\Wallet;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\CustomerSeeder;
+use Database\Seeders\ImageSeeder;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\VirtualAccountSeeder;
 use Database\Seeders\WalletSeeder;
@@ -151,5 +153,29 @@ class CustomerTest extends TestCase
         };
     }
 
+    //one to one polymorphic
+    public function testOneToOnePolymorphic()
+    {
+        $this->seed([CustomerSeeder::class, ImageSeeder::class]);
+
+        $customer = Customer::find('RIO');
+        self::assertNotNull($customer);
+
+        $image = $customer->image;
+        self::assertNotNull($image);
+        self::assertEquals('https://www.reddit.com/', $image->url);
+    }
+
+    public function testOneToOnePolymorphicProduct()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, ImageSeeder::class]);
+
+        $product = Product::find('1');
+        self::assertNotNull($product);
+
+        $image = $product->image;
+        self::assertNotNull($image);
+        self::assertEquals('https://www.reddit.com/', $image->url);
+    }
     
 }
