@@ -461,3 +461,10 @@ contoh di file :
 
 CategoryTest.php
 LINE 311-320
+
+## AGGREGATING RELATIONS
+
+contoh di file :
+
+CategoryTest.php
+LINE 322-334
