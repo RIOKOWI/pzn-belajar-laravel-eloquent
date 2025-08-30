@@ -40,16 +40,18 @@ class Customer extends Model
         return $this->hasMany(Review::class, 'customer_id', 'id');
     }
 
-    //many to many & intermediate table
+    //many to many, intermediate table & pivot model
     public function likesProducts(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id')->withPivot('created_at');
+        return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id')->withPivot('created_at')
+        ->using(Like::class);
     }
     
-    // filtering pivot
+    // filtering pivot & pivot model
     public function likesProductsLastWeek(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id')->withPivot('created_at')
-        ->wherePivot('created_at', '>=', Date::now()->addDays(-7));
+        ->wherePivot('created_at', '>=', Date::now()->addDays(-7))
+        ->using(Like::class);
     }
 }
