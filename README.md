@@ -416,3 +416,12 @@ Product.php
 ProductTest.php
 LINE 53-64
 LINE 72-86
+
+## MANY TO MANY POLYMORPHIC
+
+contoh di file :
+
+Product.php
+ProductTest.php
+LINE 53-64
+LINE 72-86
