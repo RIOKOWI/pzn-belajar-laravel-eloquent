@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Product extends Model
@@ -47,5 +48,18 @@ class Product extends Model
     public function comments(): MorphMany
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // one of many polymorphic
+    public function latestComment(): MorphOne
+    {
+        return $this->morphOne(Comment::class, 'commentable')
+        ->latest('created_at');
+    }
+
+    public function oldestComment(): MorphOne
+    {
+        return $this->morphOne(Comment::class, 'commentable')
+        ->oldest('created_at');
     }
 }

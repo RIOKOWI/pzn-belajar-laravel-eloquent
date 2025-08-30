@@ -396,14 +396,23 @@ LINE 156-179
 
 contoh di file :
 
-2025_08_30_035520_create_images_table.php
-Image.php
-ImageSeeder.php
-TestCase.php
+2025_08_30_090501_add_commentable_to_comments.php
+CommentSeeder.php
 
-Customer.php
+Comment.php
 Product.php
-CustomerTest.php
-LINE 59-63
-LINE 39-43
-LINE 156-179
+Voucher.php
+ProductTest.php
+LINE 23-27
+LINE 46-50
+LINE 37-41
+LINE 57-70
+
+## ONE OF MANY POLYMORPHIC
+
+contoh di file :
+
+Product.php
+ProductTest.php
+LINE 53-64
+LINE 72-86

@@ -58,7 +58,7 @@ class ProductTest extends TestCase
     public function testOneToManyPolymorphic()
     {
         $this->seed([CategorySeeder::class, ProductSeeder::class, VoucherSeeder::class, CommentSeeder::class]);
-
+        
         $product = Product::first();
         $comments = $product->comments;
         assertCount(1, $comments);
@@ -67,5 +67,21 @@ class ProductTest extends TestCase
             assertEquals($product->id, $comment->commentable_id);
             assertEquals(Product::class, $comment->commentable_type);
         }
+    }
+
+    // one of many polymorphic
+    public function testOneOfManyPolymorphic()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, VoucherSeeder::class, CommentSeeder::class]);
+
+        $product = Product::first();
+        $comments = $product->comments;
+
+        $comment = $product->latestComment;
+        assertNotNull($comment);
+
+        $comment = $product->oldestComment;
+        assertNotNull($comment);
+        
     }
 }
