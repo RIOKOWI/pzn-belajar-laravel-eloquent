@@ -468,3 +468,10 @@ contoh di file :
 
 CategoryTest.php
 LINE 322-334
+
+## ELOQUENT COLLECTION
+
+contoh di file :
+
+CategoryTest.php
+LINE 336-348

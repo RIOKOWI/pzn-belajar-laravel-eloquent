@@ -323,7 +323,7 @@ class CategoryTest extends TestCase
     public function testAggregatingRelations()
     {
         $this->seed([CategorySeeder::class, ProductSeeder::class]);
-
+        
         $category = Category::find('FOOD');
         $totalProduct = $category->products()->count();
         assertEquals(2, $totalProduct);
@@ -333,5 +333,18 @@ class CategoryTest extends TestCase
         
     }
 
+    // eloquent collection
+    public function testEloquentCollection()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+        $product = Product::get();
+        assertCount(2, $product);
+
+        $product = $product->toQuery()->where('price', '=', 1000)->get();
+        assertNotNull($product);
+        assertEquals('2', $product[1]->id);
+
+    }
 
 }
