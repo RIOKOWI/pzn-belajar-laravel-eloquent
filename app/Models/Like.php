@@ -15,6 +15,12 @@ class Like extends Pivot
     protected $relatedKey = 'product_id';
     public $timestamps = false;
 
+    // override timestamp menjadi false
+    public function usesTimestamps(): bool
+    {
+        return false;
+    }
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id', 'id');

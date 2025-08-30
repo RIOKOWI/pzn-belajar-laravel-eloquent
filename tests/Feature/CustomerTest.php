@@ -130,5 +130,26 @@ class CustomerTest extends TestCase
         };
     }
 
+    // pivot model
+    public function testPivotModel()
+    {
+        $this->testLike();
+
+        $customer = Customer::find('RIO');
+        $products = $customer->likesProducts;
+
+        foreach($products as $product)
+        {
+            $pivot = $product->pivot; // object model like
+            assertNotNull($pivot);
+            
+            $customer = $pivot->customer;
+            assertNotNull($customer);
+            
+            $product = $pivot->product;
+            assertNotNull($product);
+        };
+    }
+
     
 }
