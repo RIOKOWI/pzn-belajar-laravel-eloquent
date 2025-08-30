@@ -381,3 +381,29 @@ Many to Many Polymorphic
 contoh di file :
 
 2025_08_30_035520_create_images_table.php
+Image.php
+ImageSeeder.php
+TestCase.php
+
+Customer.php
+Product.php
+CustomerTest.php
+LINE 59-63
+LINE 39-43
+LINE 156-179
+
+## ONE TO MANY POLYMORPHIC
+
+contoh di file :
+
+2025_08_30_035520_create_images_table.php
+Image.php
+ImageSeeder.php
+TestCase.php
+
+Customer.php
+Product.php
+CustomerTest.php
+LINE 59-63
+LINE 39-43
+LINE 156-179
