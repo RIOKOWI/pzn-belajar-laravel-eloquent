@@ -368,4 +368,12 @@ LINE 43-56
 LINE 30-36
 LINE 133-152
 
+## POLYMORPHIC RELATIONSHIPS
+1 FK bisa lebih dari 1 tabel
+
+One to One Polymorphic
+One to Many Polymorphic
+One of Many Polymorphic
+Many to Many Polymorphic
+
 
