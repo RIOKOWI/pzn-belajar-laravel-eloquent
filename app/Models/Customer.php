@@ -17,6 +17,7 @@ class Customer extends Model
     protected $table = 'customers';
     protected $primaryKey = 'id';
     protected $keyType = 'string';
+    protected $with = ['wallet']; // override $with eager loading
     public $incrementing = false;
     public $timestamps = false;
 

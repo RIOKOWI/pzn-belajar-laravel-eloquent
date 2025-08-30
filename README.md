@@ -445,3 +445,12 @@ LINE 33-38
 LINE 21 & 27
 LINE 32 & 45
 LINE 69
+
+## LAZY & EAGER LOADING
+
+contoh di file :
+
+Customer.php
+CustomerTest.php
+LINE 20
+LINE 182-189

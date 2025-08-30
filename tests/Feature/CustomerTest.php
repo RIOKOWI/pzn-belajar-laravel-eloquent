@@ -178,4 +178,13 @@ class CustomerTest extends TestCase
         self::assertEquals('https://www.reddit.com/', $image->url);
     }
     
+
+    // eager loading defaultnya lazy loading
+    public function testEagerLoading()
+    {
+        $this->seed([CustomerSeeder::class, WalletSeeder::class, ImageSeeder::class]);
+
+        $customer = Customer::with('image')->find('RIO');
+        assertNotNull($customer);
+    }
 }
