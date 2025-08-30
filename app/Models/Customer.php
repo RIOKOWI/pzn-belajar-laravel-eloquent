@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Facades\Date;
 use Symfony\Component\HttpKernel\Debug\VirtualRequestStack;
 
@@ -53,5 +54,11 @@ class Customer extends Model
         return $this->belongsToMany(Product::class, 'customers_likes_products', 'customer_id', 'product_id')->withPivot('created_at')
         ->wherePivot('created_at', '>=', Date::now()->addDays(-7))
         ->using(Like::class);
+    }
+
+    // one to one polymorphic
+    public function image(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
