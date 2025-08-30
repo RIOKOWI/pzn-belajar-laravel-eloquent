@@ -41,6 +41,7 @@ class Voucher extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    //many to many polymorphic
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');

@@ -9,6 +9,7 @@ use Tests\TestCase;
 use Database\Seeders\ProductSeeder;
 use Database\Seeders\CategorySeeder;
 use Database\Seeders\CommentSeeder;
+use Database\Seeders\TagSeeder;
 use Database\Seeders\VoucherSeeder;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -83,5 +84,26 @@ class ProductTest extends TestCase
         $comment = $product->oldestComment;
         assertNotNull($comment);
         
+    }
+
+    // many to many polymorphic
+    public function testManyToManyPolymorphic()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, VoucherSeeder::class, TagSeeder::class]);
+
+        $product = Product::first();
+        $tags = $product->tags;
+        assertNotNull($tags);
+        assertCount(1, $tags);
+
+        foreach ($tags as $tag){
+            assertNotNull($tag);
+            assertNotNull($tag->id);
+            assertNotNull($tag->name);
+
+            $vouchers = $tag->vouchers;
+            assertNotNull($vouchers);
+            assertCount(1,$vouchers);
+        }
     }
 }
