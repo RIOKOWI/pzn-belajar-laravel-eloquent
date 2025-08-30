@@ -29,7 +29,7 @@ class CommentSeeder extends Seeder
         $comment->title = 'kritik';
         $comment->comment = 'jelek';
         $comment->commentable_id = $product->id;
-        $comment->commentable_type = Product::class;
+        $comment->commentable_type = 'product'; // polymorphic types
         $comment->save();
     }
 
@@ -42,7 +42,7 @@ class CommentSeeder extends Seeder
         $comment->title = 'kritik';
         $comment->comment = 'voucher nya hangus';
         $comment->commentable_id = $voucher->id;
-        $comment->commentable_type = Voucher::class;
+        $comment->commentable_type = 'voucher'; // polymorphic types
         $comment->save();
     }
 }

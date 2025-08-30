@@ -18,13 +18,13 @@ class ImageSeeder extends Seeder
         $image = new Image();
         $image->url = 'https://www.reddit.com/';
         $image->imageable_id = 'RIO';
-        $image->imageable_type = Customer::class;
+        $image->imageable_type = 'customer'; // polymorphic types
         $image->save();
 
         $image = new Image();
         $image->url = 'https://www.reddit.com/';
         $image->imageable_id = '1';
-        $image->imageable_type = Product::class;
+        $image->imageable_type = 'product'; // polymorphic types
         $image->save();
     }
 }

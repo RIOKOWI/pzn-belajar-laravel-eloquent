@@ -66,7 +66,7 @@ class ProductTest extends TestCase
         foreach ($comments as $comment){
             assertNotNull($comment);
             assertEquals($product->id, $comment->commentable_id);
-            assertEquals(Product::class, $comment->commentable_type);
+            assertEquals('product', $comment->commentable_type); // polymorphic types
         }
     }
 

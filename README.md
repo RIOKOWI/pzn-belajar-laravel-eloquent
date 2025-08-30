@@ -68,10 +68,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## #########################################################################################################
 
 ## SLIDE
-
+https://docs.google.com/presentation/d/1popEop_YpVChJBbf5Nmj59BB9y--iS8ZGMYLzT807HA/edit
 
 ## SOURCE CODE
-
+https://github.com/ProgrammerZamanNow/belajar-laravel-eloquent
 
 ## MEMBUAT DATABASE
 
@@ -432,3 +432,16 @@ ProductTest.php
 LINE 67-71
 LINE 44-48
 LINE 89-104
+
+## POLYMORPHIC TYPES
+
+contoh di file :
+
+AppServiceProvider.php
+ImageSeeder.php
+CommentSeeder.php
+ProductTest.php
+LINE 33-38
+LINE 21 & 27
+LINE 32 & 45
+LINE 69
