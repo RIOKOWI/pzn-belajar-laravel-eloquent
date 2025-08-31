@@ -2,21 +2,22 @@
 
 namespace Tests\Feature;
 
-use App\Models\Category;
+use Tests\TestCase;
 use App\Models\Product;
 use App\Models\Voucher;
-use Tests\TestCase;
-use Database\Seeders\ProductSeeder;
-use Database\Seeders\CategorySeeder;
-use Database\Seeders\CommentSeeder;
+use App\Models\Category;
 use Database\Seeders\TagSeeder;
+use Database\Seeders\CommentSeeder;
+use Database\Seeders\ProductSeeder;
 use Database\Seeders\VoucherSeeder;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use Illuminate\Support\Facades\Log;
+use Database\Seeders\CategorySeeder;
 use function PHPUnit\Framework\assertCount;
+
 use function PHPUnit\Framework\assertEquals;
+use Illuminate\Foundation\Testing\WithFaker;
 use function PHPUnit\Framework\assertNotNull;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductTest extends TestCase
 {
@@ -105,5 +106,17 @@ class ProductTest extends TestCase
             assertNotNull($vouchers);
             assertCount(1,$vouchers);
         }
+    }
+
+    //serialization
+    public function testSerialization()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class]);
+
+        $product = Product::get();
+        assertCount(2, $product);
+
+        $json = $product->toJson(JSON_PRETTY_PRINT);
+        Log::info($json);
     }
 }

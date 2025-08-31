@@ -512,3 +512,19 @@ PersonTest.php
 LINE 16
 LINE 62-78
 
+## SERIALIZATION
+
+perintah buat cast :
+php artisan make:cast AsAddres 
+
+contoh di file :
+
+2025_08_31_031106_add_column_address_to_persons.php
+Address.php
+AsAddress.php
+
+Person.php
+PersonTest.php
+LINE 16
+LINE 62-78
+
