@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Scopes\IsActiveScope;
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,6 +15,9 @@ class Category extends Model
     protected $table = 'categories';
     protected $primaryKey = 'id';
     protected $keyType = 'string';
+    protected $casts = [
+        'created_at' => 'datetime:U' // serialization datetime
+    ];
     public $incrementing = false;
     public $timestamps = false;
 
