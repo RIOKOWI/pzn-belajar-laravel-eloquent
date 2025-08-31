@@ -343,7 +343,7 @@ class CategoryTest extends TestCase
 
         $product = $product->toQuery()->where('price', '=', 1000)->get();
         assertNotNull($product);
-        assertEquals('2', $product[1]->id);
+        assertEquals('2', $product[0]->id);
 
     }
 

@@ -6,5 +6,4 @@ SHOW TABLES;
 
 DESC comments;
 
-SELECT * FROM employees
-;
+SELECT * FROM vouchers;
