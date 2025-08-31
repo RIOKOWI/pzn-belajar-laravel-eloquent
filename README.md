@@ -480,6 +480,19 @@ LINE 336-348
 
 contoh di file :
 
-CategoryTest.php
-LINE 336-348
+2025_08_31_014819_create_people_table.php
+Person.php
+TestCase.php
+
+PersonTest.php
+LINE 16-41
+
+## AATRIBUTES CASTING
+
+contoh di file :
+
+Person.php
+PersonTest.php
+LINE 14-17
+LINE 47-59
 

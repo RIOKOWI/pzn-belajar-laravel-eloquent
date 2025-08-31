@@ -11,6 +11,10 @@ class Person extends Model
     protected $table = 'persons';
     protected $primaryKey = 'id';
     protected $keyType = 'int';
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ]; // attribute casting
     public $incrementing = true;
     public $timestamps = true;
 
@@ -43,4 +47,5 @@ class Person extends Model
             }
         );
     }
+
 }

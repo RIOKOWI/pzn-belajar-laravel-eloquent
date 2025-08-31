@@ -2,14 +2,18 @@
 
 namespace Tests\Feature;
 
-use App\Models\Person;
 use Attribute;
-use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use Carbon\Carbon;
 use Tests\TestCase;
-
+use App\Models\Person;
+use Carbon\Carbon as CarbonCarbon;
 use function PHPUnit\Framework\assertEquals;
+use Illuminate\Foundation\Testing\WithFaker;
+
+use function PHPUnit\Framework\assertNotNull;
+use function PHPUnit\Framework\assertInstanceOf;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
 
 class PersonTest extends TestCase
 {
@@ -38,5 +42,19 @@ class PersonTest extends TestCase
         $person->save();
 
         assertEquals('RIO', $person->first_name);
+    }
+
+    // attribute casting
+    public function testAttributeCasting()
+    {
+        $person = new Person();
+        $person->first_name = 'rio';
+        $person->last_name = 'cukuruk';
+        $person->save();
+
+        assertNotNull($person->created_at);
+        assertNotNull($person->updated_at);
+        assertInstanceOf(Carbon::class, $person->updated_at);
+        assertInstanceOf(Carbon::class, $person->updated_at);
     }
 }
