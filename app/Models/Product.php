@@ -17,6 +17,7 @@ class Product extends Model
     protected $table = 'products';
     protected $primaryKey = 'id';
     protected $keyType = 'string';
+    protected $hidden = ['category_id']; // serialization hidden
     public $incrementing = false;
     public $timestamps = false;
 
