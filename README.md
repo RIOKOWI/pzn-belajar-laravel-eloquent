@@ -527,4 +527,13 @@ LINE 113-136
 
 contoh di file :
 
+perintah buat factory :
+php artisan make:factory EmployeeFactory
+
+2025_08_31_040722_create_employees_table.php
+TestCase.php
+Employee.php
+EmployeeFactory.php
+EmployeeTest.php
+
 

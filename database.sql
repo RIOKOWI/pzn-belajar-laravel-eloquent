@@ -6,4 +6,5 @@ SHOW TABLES;
 
 DESC comments;
 
-SELECT * FROM persons;
+SELECT * FROM employees
+;
