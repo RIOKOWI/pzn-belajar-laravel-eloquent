@@ -23,4 +23,24 @@ class EmployeeFactory extends Factory
             'salary' => 0,
         ];
     }
+
+    public function programmer(): Factory
+    {
+        return $this->state(function(array $attributes){
+            return [
+                'title' => 'programmer',
+                'salary' => 5000000,
+            ];
+        });
+    }
+
+    public function seniorProgrammer(): Factory
+    {
+        return $this->state(function(array $attributes){
+            return [
+                'title' => 'senior programmer',
+                'salary' => 10000000,
+            ];
+        });
+    }
 }
