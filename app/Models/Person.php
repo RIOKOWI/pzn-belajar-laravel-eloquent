@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\AsAddress;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,7 @@ class Person extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'int';
     protected $casts = [
+        'address' => AsAddress::class, //custom cast
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ]; // attribute casting

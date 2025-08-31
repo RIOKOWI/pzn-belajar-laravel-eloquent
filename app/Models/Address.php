@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Addres
+class Address
 {
     public string $street;
     public string $city;

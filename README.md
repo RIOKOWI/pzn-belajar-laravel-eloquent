@@ -499,11 +499,16 @@ LINE 47-59
 ## CUSTOM CAST
 
 perintah buat cast :
+php artisan make:cast AsAddres 
 
 contoh di file :
 
+2025_08_31_031106_add_column_address_to_persons.php
+Address.php
+AsAddress.php
+
 Person.php
 PersonTest.php
-LINE 14-17
-LINE 47-59
+LINE 16
+LINE 62-78
 

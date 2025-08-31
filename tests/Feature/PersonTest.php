@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Address;
 use Attribute;
 use Carbon\Carbon;
 use Tests\TestCase;
@@ -56,5 +57,23 @@ class PersonTest extends TestCase
         assertNotNull($person->updated_at);
         assertInstanceOf(Carbon::class, $person->updated_at);
         assertInstanceOf(Carbon::class, $person->updated_at);
+    }
+
+    // custom cast
+    public function testCustomCast()
+    {
+        $person = new Person();
+        $person->first_name = 'rio';
+        $person->last_name = 'achyar';
+        $person->address = new Address('taman merpati', 'tangerang', 'indonesia', '15560');
+        $person->save();
+
+        assertNotNull($person);
+        assertEquals('RIO' ,$person->first_name);
+        assertEquals('achyar', $person->last_name);
+        assertEquals('taman merpati', $person->address->street);
+        assertEquals('tangerang', $person->address->city);
+        assertEquals('indonesia', $person->address->country);
+        assertEquals('15560', $person->address->postal_code);
     }
 }
