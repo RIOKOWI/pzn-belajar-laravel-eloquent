@@ -487,7 +487,18 @@ TestCase.php
 PersonTest.php
 LINE 16-41
 
-## AATRIBUTES CASTING
+## ATTRIBUTES CASTING
+
+contoh di file :
+
+Person.php
+PersonTest.php
+LINE 14-17
+LINE 47-59
+
+## CUSTOM CAST
+
+perintah buat cast :
 
 contoh di file :
 
