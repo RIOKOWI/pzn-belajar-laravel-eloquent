@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Person;
+use Attribute;
+use Illuminate\Database\Eloquent\Casts\Attribute as CastsAttribute;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -19,12 +21,22 @@ class PersonTest extends TestCase
         $person->last_name = 'achyar';
         $person->save();
         
-        assertEquals('rio achyar', $person->full_name);
+        assertEquals('RIO achyar', $person->full_name);
         
         $person->full_name = 'embut cepong';
         $person->save();
 
-        assertEquals('embut', $person->first_name);
+        assertEquals('EMBUT', $person->first_name);
         assertEquals('cepong', $person->last_name);
+    }
+
+    public function testColumnPerson()
+    {
+        $person = new Person();
+        $person->first_name = 'rio';
+        $person->last_name = '';
+        $person->save();
+
+        assertEquals('RIO', $person->first_name);
     }
 }
