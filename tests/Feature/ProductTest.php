@@ -12,6 +12,8 @@ use Database\Seeders\ProductSeeder;
 use Database\Seeders\VoucherSeeder;
 use Illuminate\Support\Facades\Log;
 use Database\Seeders\CategorySeeder;
+use Database\Seeders\ImageSeeder;
+
 use function PHPUnit\Framework\assertCount;
 
 use function PHPUnit\Framework\assertEquals;
@@ -114,6 +116,19 @@ class ProductTest extends TestCase
         $this->seed([CategorySeeder::class, ProductSeeder::class]);
 
         $product = Product::get();
+        assertCount(2, $product);
+
+        $json = $product->toJson(JSON_PRETTY_PRINT);
+        Log::info($json);
+    }
+
+    //serialization relation
+    public function testSerializationRelation()
+    {
+        $this->seed([CategorySeeder::class, ProductSeeder::class, ImageSeeder::class]);
+
+        $product = Product::get();
+        $product->load(['category', 'image']);
         assertCount(2, $product);
 
         $json = $product->toJson(JSON_PRETTY_PRINT);
